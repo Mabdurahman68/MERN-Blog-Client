@@ -15,7 +15,7 @@ const SubscribesUserPosts = () => {
 
   const getData = () => {
     console.log("getData function")
-    fetch("/followersposts", {
+    fetch("https://mern-blog-iti.herokuapp.com/followersposts", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("jwt"),
       },

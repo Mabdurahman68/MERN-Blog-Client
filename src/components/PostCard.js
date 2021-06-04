@@ -7,7 +7,7 @@ const PostCard = (props) => {
   const { state, dispatch } = useContext(UserContext)
 
   const makeComment = (e, text, postId) => {
-    fetch("/comment", {
+    fetch("https://mern-blog-iti.herokuapp.com/comment", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +28,7 @@ const PostCard = (props) => {
       })
   }
   const deletPost = (postId) => {
-    fetch(`/deletepost/${postId}`, {
+    fetch(`https://mern-blog-iti.herokuapp.com/deletepost/${postId}`, {
       method: "delete",
       headers: {
         // 'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ const PostCard = (props) => {
   }
 
   const unLikePost = (id) => {
-    fetch("/unlike", {
+    fetch("https://mern-blog-iti.herokuapp.com/unlike", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -63,7 +63,7 @@ const PostCard = (props) => {
       })
   }
   const likePost = (id) => {
-    fetch("/like", {
+    fetch("https://mern-blog-iti.herokuapp.com/like", {
       method: "put",
       headers: {
         "Content-Type": "application/json",

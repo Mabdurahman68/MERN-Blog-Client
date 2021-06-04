@@ -9,7 +9,7 @@ const CreatePost = () => {
   const [url, setUrl] = useState("");
   useEffect(() => {
     if (url) {
-      fetch("/createpost", {
+      fetch("https://mern-blog-iti.herokuapp.com/createpost", {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -37,7 +37,7 @@ const CreatePost = () => {
           console.log(err);
         });
     }
-  }, [url]);
+  }, [body, history, title, url]);
 
   const postDetails = () => {
     if(!title||!body||!image){

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState, useContext } from "react"
 import { Link } from "react-router-dom"
 
@@ -18,7 +19,7 @@ const Profile = () => {
 
   const getData = () => {
     console.log("mypost function")
-    fetch("/mypost", {
+    fetch("https://mern-blog-iti.herokuapp.com/mypost", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("jwt"),
       },
@@ -43,7 +44,7 @@ const Profile = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          fetch("/updatepic", {
+          fetch("https://mern-blog-iti.herokuapp.com/updatepic", {
             method: "put",
             headers: {
               "Content-Type": "application/json",
@@ -66,7 +67,7 @@ const Profile = () => {
           console.log(err)
         })
     }
-  }, [image])
+  }, [dispatch, image, state])
   const updatePic = (file) => {
     setImage(file)
   }
@@ -123,7 +124,7 @@ const Profile = () => {
             >
               <h6>
                 {data.length}{" "}
-                {data.length == 1 ? <b>Post</b> : <b>Posts</b>}
+                {data.length === 1 ? <b>Post</b> : <b>Posts</b>}
               </h6>
               <h6> {state ? state.followers.length : "0"} followers</h6>
               <h6> {state ? state.following.length : "0"} following</h6>

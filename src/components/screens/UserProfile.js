@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState, useContext } from "react"
 
 import { UserContext } from "../../App"
@@ -16,11 +17,11 @@ const UserProfile = () => {
 
   useEffect(() => {
     getData()
-  }, [])
+  }, [getData])
 
   const getData = () => {
     console.log("getData function")
-    fetch(`/user/${userid}`, {
+    fetch(`https://mern-blog-iti.herokuapp.com/user/${userid}`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("jwt"),
       },
@@ -30,14 +31,14 @@ const UserProfile = () => {
         console.log(result)
         setProfile(result)
       })
-      .catch(err => {
+      .catch(_err => {
         window.location.replace("/");
       })
     setShowFollow(state ? !state.following.includes(userid) : true)
   }
 
   const followUser = () => {
-    fetch("/follow", {
+    fetch("https://mern-blog-iti.herokuapp.com/follow", {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -67,7 +68,7 @@ const UserProfile = () => {
       })
   }
   const unfollowUser = () => {
-    fetch("/unfollow", {
+    fetch("https://mern-blog-iti.herokuapp.com/unfollow", {
       method: "put",
       headers: {
         "Content-Type": "application/json",

@@ -15,7 +15,7 @@ const Home = () => {
 
   const getData = () => {
     console.log("getData function")
-    fetch("/allposts", {
+    fetch("https://mern-blog-iti.herokuapp.com/allposts", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("jwt"),
       },

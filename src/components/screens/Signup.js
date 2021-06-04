@@ -43,7 +43,7 @@ const Signup = () => {
       M.toast({ html: "invalid email", classes: "#d50000 red accent-4" });
       return;
     }
-    fetch("/signup", {
+    fetch("https://mern-blog-iti.herokuapp.com/signup", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
